@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import LevelEditor from './components/LevelEditor'
 import { createLevel, updateGame } from './actions'
+import style from './style.scss'
 
 class Editor extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class Editor extends React.Component {
   }
   render() {
     return (
-      <form>
+      <form className={style.test}>
         <label>Music</label>
         <input type="text"
           value={this.props.music}
