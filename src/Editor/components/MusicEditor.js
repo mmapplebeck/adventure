@@ -21,9 +21,7 @@ class MusicEditor extends React.Component {
               previewable: e.target.value ? true : false,
               selectedMusic: e.target.value
             })
-            this.props.onChange({
-              music: e.target.value
-            })
+            this.props.onChange(e)
           }}>
             <option value=""
               selected={false}

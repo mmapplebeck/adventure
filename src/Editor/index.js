@@ -25,7 +25,11 @@ class Editor extends React.Component {
           <legend>Game Defaults</legend>
           <label htmlFor="game-music">
             Music
-            <MusicEditor onChange={this.props.updateGame} />
+            <MusicEditor onChange={e => {
+              this.props.updateGame({
+                music: e.target.value
+              })
+            }} />
           </label>
           <label htmlFor="game-background">
             Background Image

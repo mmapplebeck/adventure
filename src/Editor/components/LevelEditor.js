@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ChoiceEditor from './ChoiceEditor'
+import MusicEditor from './MusicEditor'
 import { deleteLevel, updateLevel, createChoice } from '../actions'
 
 const LevelEditor = props => {
@@ -19,13 +20,11 @@ const LevelEditor = props => {
       </label>
       <label>
         Music
-        <input type="text"
-          value={props.music}
-          onChange={(e) => {
-            props.updateLevel(props.id, {
-              music: e.target.value
-            })
-          }} />
+        <MusicEditor onChange={e => {
+          props.updateLevel(props.id, {
+            music: e.target.value
+          })
+        }} />
       </label>
       <label>
         Background Image
