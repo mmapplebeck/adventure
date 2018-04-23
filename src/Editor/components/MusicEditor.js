@@ -7,8 +7,8 @@ import music from '../../music'
 const MusicEditor = props => {
   return (
     <AssetEditor
+      {...props}
       assets={music}
-      onChange={props.onChange}
       onPreviewToggle={src => {
         props.updateCurrentMusic(src)
       }}  />

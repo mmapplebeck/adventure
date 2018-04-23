@@ -7,8 +7,8 @@ import images from '../../images'
 const ImageEditor = props => {
   return (
     <AssetEditor
+      {...props}
       assets={images}
-      onChange={props.onChange}
       onPreviewToggle={src => {
         props.updateCurrentBackground(src)
       }}  />

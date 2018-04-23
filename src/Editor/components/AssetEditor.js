@@ -13,7 +13,8 @@ class AssetEditor extends React.Component {
   render() {
     return (
       <div>
-        <select onChange={(e) => {
+        <select id={this.props.selectId}
+          onChange={(e) => {
             this.setState({
               previewable: e.target.value ? true : false,
               selected: e.target.value

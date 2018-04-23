@@ -20,18 +20,20 @@ class Editor extends React.Component {
       <form className={style.root}>
         <fieldset>
           <legend>Game Defaults</legend>
-          <label htmlFor="game-music">
+          <label htmlFor="game__music">
             Music
             <MusicEditor
+              selectId="game__music"
               onChange={e => {
                 this.props.updateGame({
                   music: e.target.value
                 })
               }} />
           </label>
-          <label htmlFor="game-background">
+          <label htmlFor="game__background">
             Background Image
             <ImageEditor
+              selectId="game__background"
               onChange={e => {
                 this.props.updateGame({
                   background_image: e.target.value

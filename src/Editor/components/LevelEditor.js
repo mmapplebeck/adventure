@@ -9,9 +9,10 @@ const LevelEditor = props => {
   return (
     <fieldset>
       <legend>{props.id}</legend>
-      <label>
+      <label htmlFor={`${props.id}_message`}>
         Message
         <input type="text"
+          id={`${props.id}__message`}
           value={props.message}
           onChange={(e) => {
             props.updateLevel(props.id, {
@@ -19,18 +20,20 @@ const LevelEditor = props => {
             })
           }} />
       </label>
-      <label>
+      <label htmlFor={`${props.id}__music`}>
         Music
         <MusicEditor
+          selectId={`${props.id}__music`}
           onChange={e => {
             props.updateLevel(props.id, {
               music: e.target.value
             })
           }} />
       </label>
-      <label>
+      <label htmlFor={`${props.id}__background`}>
         Background Image
         <ImageEditor
+          selectId={`${props.id}__background`}
           onChange={e => {
             props.updateLevel(props.id, {
               background_image: e.target.value
