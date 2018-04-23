@@ -7,7 +7,6 @@ import images from '../../images'
 const ImageEditor = props => {
   return (
     <AssetEditor
-      defaultSelectText="Select Background Image"
       assets={images}
       onChange={props.onChange}
       onPreviewToggle={src => {

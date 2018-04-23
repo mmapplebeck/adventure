@@ -7,7 +7,6 @@ import music from '../../music'
 const MusicEditor = props => {
   return (
     <AssetEditor
-      defaultSelectText="Select Music"
       assets={music}
       onChange={props.onChange}
       onPreviewToggle={src => {

@@ -21,10 +21,8 @@ class AssetEditor extends React.Component {
             this.props.onChange(e)
           }}>
             <option value=""
-              selected={false}
-              disable={true}
-              hidden={true}>
-                {this.props.defaultSelectText}
+              selected={true}>
+                None
             </option>
             {
               Object.keys(this.props.assets).map(key => {
