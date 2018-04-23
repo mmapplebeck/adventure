@@ -1,3 +1,13 @@
+:global {
+  body {
+    font-size: 16px;
+  }
+}
+
 .root {
-  
+  width: calc(100vw - 2rem);
+  height: calc(100vh - 2rem);
+  padding: 1rem;
+  background-size: cover;
+  background-position: center;
 }

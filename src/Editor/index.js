@@ -17,14 +17,7 @@ class Editor extends React.Component {
 
   render() {
     return (
-      <form className={style.root}
-        style={this.props.currentBackground ? {
-          backgroundImage: `url(${this.props.currentBackground})`
-        } : {}}>
-        <audio src={this.props.currentMusic || ''}
-          autoPlay
-          loop>
-        </audio>
+      <form className={style.root}>
         <fieldset>
           <legend>Game Defaults</legend>
           <label htmlFor="game-music">
@@ -102,10 +95,8 @@ class Editor extends React.Component {
   }
 }
 
-const mapStateToProps = ({currentBackground, currentMusic, game}) => {
+const mapStateToProps = ({game}) => {
   return {
-    currentBackground,
-    currentMusic,
     game
   }
 }

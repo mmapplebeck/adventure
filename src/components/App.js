@@ -19,7 +19,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className={style.root}>
+      <div className={style.root}
+        style={this.props.state.currentBackground ? {
+          backgroundImage: `url(${this.props.state.currentBackground})`
+        } : {}}>
+        <audio src={this.props.state.currentMusic || ''}
+          autoPlay
+          loop>
+        </audio>
         <Editor />
       </div>
     )
