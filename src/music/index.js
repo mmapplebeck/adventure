@@ -1,3 +1,3 @@
 export default {
-  lostMine: require('./lostMine.mp3')
+  'Creepy': require('./lostMine.mp3')
 }
