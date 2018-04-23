@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import LevelEditor from './components/LevelEditor'
 import MusicEditor from './components/MusicEditor'
+import ImageEditor from './components/ImageEditor'
 import { createLevel, updateGame } from './actions'
 import style from './style.scss'
 
@@ -16,7 +17,10 @@ class Editor extends React.Component {
 
   render() {
     return (
-      <form className={style.root}>
+      <form className={style.root}
+        style={this.props.currentBackground ? {
+          backgroundImage: `url(${this.props.currentBackground})`
+        } : {}}>
         <audio src={this.props.currentMusic || ''}
           autoPlay
           loop>
@@ -25,18 +29,17 @@ class Editor extends React.Component {
           <legend>Game Defaults</legend>
           <label htmlFor="game-music">
             Music
-            <MusicEditor onChange={e => {
-              this.props.updateGame({
-                music: e.target.value
-              })
-            }} />
+            <MusicEditor
+              onChange={e => {
+                this.props.updateGame({
+                  music: e.target.value
+                })
+              }} />
           </label>
           <label htmlFor="game-background">
             Background Image
-            <input type="text"
-              id="game-background"
-              value={this.props.game.background_image}
-              onChange={(e) => {
+            <ImageEditor
+              onChange={e => {
                 this.props.updateGame({
                   background_image: e.target.value
                 })
@@ -99,8 +102,9 @@ class Editor extends React.Component {
   }
 }
 
-const mapStateToProps = ({currentMusic, game}) => {
+const mapStateToProps = ({currentBackground, currentMusic, game}) => {
   return {
+    currentBackground,
     currentMusic,
     game
   }

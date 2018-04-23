@@ -6,3 +6,10 @@ export function updateCurrentMusic(src) {
     src
   }
 }
+
+export function updateCurrentBackground(src) {
+  return {
+    type: actions.UPDATE_CURRENT_BACKGROUND,
+    src
+  }
+}
