@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Editor from '../Editor'
+import 'normalize.css'
+import style from '../style.scss'
 
 class App extends React.Component {
   constructor(props) {
@@ -17,7 +19,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={style.root}>
         <Editor />
       </div>
     )

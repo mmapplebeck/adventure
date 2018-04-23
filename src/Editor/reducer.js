@@ -25,7 +25,7 @@ const defaultState = {
   }
 }
 
-const choicesReducer = (state = [], action) => {
+const choices = (state = [], action) => {
   switch (action.type) {
     case actions.UPDATE_CHOICE:
       return state.map((choice, i) => {
@@ -56,7 +56,7 @@ const choicesReducer = (state = [], action) => {
   }
 }
 
-const levelsReducer = (state = {}, action) => {
+const levels = (state = {}, action) => {
   switch (action.type) {
     case actions.UPDATE_LEVEL:
       return {
@@ -87,7 +87,7 @@ const levelsReducer = (state = {}, action) => {
         ...state,
         [action.levelId]: {
           ...state[action.levelId],
-          choices: choicesReducer(state[action.levelId].choices, action)
+          choices: choices(state[action.levelId].choices, action)
         }
       }
 
@@ -96,7 +96,7 @@ const levelsReducer = (state = {}, action) => {
   }
 }
 
-export default function editorReducer(state = defaultState, action) {
+export default function game(state = defaultState, action) {
   let choices
 
   switch (action.type) {
@@ -114,7 +114,7 @@ export default function editorReducer(state = defaultState, action) {
     case actions.DELETE_LEVEL:
       return {
         ...state,
-        levels: levelsReducer(state.levels, action)
+        levels: levels(state.levels, action)
       }
 
     default:

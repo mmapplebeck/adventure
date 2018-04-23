@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import LevelEditor from './components/LevelEditor'
+import MusicEditor from './components/MusicEditor'
 import { createLevel, updateGame } from './actions'
 import style from './style.scss'
 
@@ -12,32 +13,39 @@ class Editor extends React.Component {
       newLevelId: ''
     }
   }
+
   render() {
     return (
-      <form className={style.test}>
-        <label>Music</label>
-        <input type="text"
-          value={this.props.music}
-          onChange={(e) => {
-            this.props.updateGame({
-              music: e.target.value
-            })
-          }} />
-          <label>Background Image</label>
-          <input type="text"
-            value={this.props.background_image}
-            onChange={(e) => {
-              this.props.updateGame({
-                background_image: e.target.value
-              })
-            }} />
+      <form className={style.root}>
+        <audio src={this.props.currentMusic || ''}
+          autoPlay
+          loop>
+        </audio>
+        <fieldset>
+          <legend>Game Defaults</legend>
+          <label htmlFor="game-music">
+            Music
+            <MusicEditor onChange={this.props.updateGame} />
+          </label>
+          <label htmlFor="game-background">
+            Background Image
+            <input type="text"
+              id="game-background"
+              value={this.props.game.background_image}
+              onChange={(e) => {
+                this.props.updateGame({
+                  background_image: e.target.value
+                })
+              }} />
+          </label>
+        </fieldset>
         <fieldset>
           <legend>Levels</legend>
           {
-            Object.keys(this.props.levels).map(id => (
+            Object.keys(this.props.game.levels).map(id => (
               <LevelEditor key={id}
                 id={id}
-                {...this.props.levels[id]} />
+                {...this.props.game.levels[id]} />
             ))
           }
           {
@@ -87,10 +95,10 @@ class Editor extends React.Component {
   }
 }
 
-const mapStateToProps = ({game}) => {
+const mapStateToProps = ({currentMusic, game}) => {
   return {
-    levelCount: Object.keys(game.levels).length,
-    ...game
+    currentMusic,
+    game
   }
 }
 

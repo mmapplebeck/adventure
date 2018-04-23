@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const CleanWebpackPlugin = require("clean-webpack-plugin")
 
 module.exports = {
+  mode: 'development',
   entry: { main: './src/index.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -20,7 +21,7 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -34,6 +35,12 @@ module.exports = {
           'postcss-loader',
           'sass-loader'
         ]
+      },
+      {
+        test: /\.mp3$/,
+        use: {
+          loader: "file-loader"
+        }
       }
     ]
   },
