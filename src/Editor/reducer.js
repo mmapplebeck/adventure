@@ -2,15 +2,15 @@ import * as actions from './actionTypes'
 
 class Level {
   constructor() {
-    this.message = 'Placeholder'
+    this.message = ''
     this.choices = []
   }
 }
 
 class Choice {
   constructor() {
-    this.text = 'Placeholder'
-    this.nextLevel = null
+    this.text = ''
+    this.nextLevel = ''
   }
 }
 
@@ -46,7 +46,7 @@ const choices = (state = [], action) => {
     case actions.CREATE_CHOICE:
       return [
         ...state,
-        action.payload
+        new Choice()
       ]
 
     case actions.DELETE_CHOICE:
