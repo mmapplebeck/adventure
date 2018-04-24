@@ -9,7 +9,7 @@ const LevelEditor = props => {
   return (
     <fieldset>
       <legend>{props.id}</legend>
-      <label htmlFor={`${props.id}_message`}>
+      <label htmlFor={`${props.id}__message`}>
         Message
         <input type="text"
           id={`${props.id}__message`}

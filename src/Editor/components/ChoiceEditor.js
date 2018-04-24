@@ -3,19 +3,26 @@ import { connect } from 'react-redux'
 import { updateChoice, deleteChoice } from '../actions'
 
 const ChoiceEditor = props => {
+  const choiceId = props.id + 1
+  const choicePrefix = `${props.levelId}__choice-${choiceId}`
   return (
     <fieldset>
-      <legend>{props.id + 1}</legend>
-      <label>Text</label>
-      <input type="text"
-        value={props.text}
-        onChange={(e) => {
-          props.updateChoice(props.levelId, props.id, {
-            text: e.target.value
-          })
-        }} />
-        <label>Next Level</label>
+      <legend>{choiceId}</legend>
+      <label htmlFor={`${choicePrefix}-text`}>
+        Text
+        <input type="text"
+          id={`${choicePrefix}-text`}
+          value={props.text}
+          onChange={(e) => {
+            props.updateChoice(props.levelId, props.id, {
+              text: e.target.value
+            })
+          }} />
+      </label>
+      <label htmlFor={`${choicePrefix}-nextLevel`}>
+        Next Level
         <select value={props.nextLevel}
+          id={`${choicePrefix}-nextLevel`}
           onChange={(e) => {
             props.updateChoice(props.levelId, props.id, {
               nextLevel: e.target.value
@@ -33,10 +40,11 @@ const ChoiceEditor = props => {
               ))
             }
         </select>
-        <button type="button"
-          onClick={() => props.deleteChoice(props.levelId, props.id)}>
-            Delete Choice
-        </button>
+      </label>
+      <button type="button"
+        onClick={() => props.deleteChoice(props.levelId, props.id)}>
+          Delete Choice
+      </button>
     </fieldset>
   )
 }
