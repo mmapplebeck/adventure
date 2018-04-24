@@ -5,7 +5,7 @@ class AssetEditor extends React.Component {
     super(props)
     this.state = {
       previewing: false,
-      previewable: false
+      previewable: props.selected ? true : false
     }
   }
 
