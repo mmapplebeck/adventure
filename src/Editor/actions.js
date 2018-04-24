@@ -52,3 +52,10 @@ export function updateGame(payload) {
     payload
   }
 }
+
+export function updatePreview(payload) {
+  return {
+    type: actions.UPDATE_PREVIEW,
+    payload
+  }
+}

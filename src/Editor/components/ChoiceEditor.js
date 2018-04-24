@@ -15,22 +15,19 @@ const ChoiceEditor = props => {
           })
         }} />
         <label>Next Level</label>
-        <select
+        <select value={props.nextLevel}
           onChange={(e) => {
             props.updateChoice(props.levelId, props.id, {
               nextLevel: e.target.value
             })
           }}>
-            <option value=""
-              selected={false}
-              disable={true}
-              hidden={true}>
-                Select Next Level
+            <option value="">
+              Select Next Level
             </option>
             {
               Object.keys(props.levels).map(id => (
                 <option value={id}
-                  selected={id === props.nextLevel}>
+                  key={id}>
                     {id}
                 </option>
               ))

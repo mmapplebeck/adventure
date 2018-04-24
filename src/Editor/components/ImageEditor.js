@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import AssetEditor from './AssetEditor'
-import { updateCurrentBackground } from '../../actions'
+import { updatePreview } from '../actions'
 import images from '../../images'
 
 const ImageEditor = props => {
@@ -10,15 +10,17 @@ const ImageEditor = props => {
       {...props}
       assets={images}
       onPreviewToggle={src => {
-        props.updateCurrentBackground(src)
-      }}  />
+        props.updatePreview({
+          previewBackground: src
+        })
+      }} />
   )
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateCurrentBackground: src => {
-      dispatch(updateCurrentBackground(src))
+    updatePreview: payload => {
+      dispatch(updatePreview(payload))
     }
   }
 }

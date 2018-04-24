@@ -14,7 +14,7 @@ class Choice {
   }
 }
 
-const defaultState = {
+const defaultGameState = {
   music: '',
   background_image: '',
   levels: {
@@ -23,6 +23,11 @@ const defaultState = {
       choices: []
     }
   }
+}
+
+const defaultEditorState = {
+  previewMusic: '',
+  previewBackground: ''
 }
 
 const choices = (state = [], action) => {
@@ -96,7 +101,19 @@ const levels = (state = {}, action) => {
   }
 }
 
-export default function game(state = defaultState, action) {
+export function editor(state = defaultEditorState, action) {
+  switch (action.type) {
+    case actions.UPDATE_PREVIEW:
+      return {
+        ...state,
+        ...action.payload
+      }
+    default:
+      return state
+  }
+}
+
+export function game(state = defaultGameState, action) {
   let choices
 
   switch (action.type) {

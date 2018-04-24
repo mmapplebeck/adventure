@@ -24,6 +24,7 @@ const LevelEditor = props => {
         Music
         <MusicEditor
           selectId={`${props.id}__music`}
+          selected={props.music}
           onChange={e => {
             props.updateLevel(props.id, {
               music: e.target.value
@@ -34,6 +35,7 @@ const LevelEditor = props => {
         Background Image
         <ImageEditor
           selectId={`${props.id}__background`}
+          selected={props.background_image}
           onChange={e => {
             props.updateLevel(props.id, {
               background_image: e.target.value

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import AssetEditor from './AssetEditor'
-import { updateCurrentMusic } from '../../actions'
+import { updatePreview } from '../actions'
 import music from '../../music'
 
 const MusicEditor = props => {
@@ -10,15 +10,17 @@ const MusicEditor = props => {
       {...props}
       assets={music}
       onPreviewToggle={src => {
-        props.updateCurrentMusic(src)
+        props.updatePreview({
+          previewMusic: src
+        })
       }}  />
   )
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateCurrentMusic: src => {
-      dispatch(updateCurrentMusic(src))
+    updatePreview: payload => {
+      dispatch(updatePreview(payload))
     }
   }
 }

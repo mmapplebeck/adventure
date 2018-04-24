@@ -5,8 +5,7 @@ class AssetEditor extends React.Component {
     super(props)
     this.state = {
       previewing: false,
-      previewable: false,
-      selected: ''
+      previewable: false
     }
   }
 
@@ -14,22 +13,21 @@ class AssetEditor extends React.Component {
     return (
       <div>
         <select id={this.props.selectId}
+          value={this.props.selected}
           onChange={(e) => {
             this.setState({
-              previewable: e.target.value ? true : false,
-              selected: e.target.value
+              previewable: e.target.value ? true : false
             })
             this.props.onChange(e)
           }}>
-            <option value=""
-              selected={true}>
+            <option value="">
                 None
             </option>
             {
               Object.keys(this.props.assets).map(key => {
                 return (
                   <option key={key}
-                    value={this.props.assets[key]}>
+                    value={key}>
                       {key}
                   </option>
                 )
@@ -42,7 +40,7 @@ class AssetEditor extends React.Component {
               onClick={(e) => {
                 const willPreview = !this.state.previewing
 
-                this.props.onPreviewToggle(willPreview ? this.state.selected : '')
+                this.props.onPreviewToggle(willPreview ? this.props.selected : '')
 
                 this.setState({
                   previewing: willPreview
