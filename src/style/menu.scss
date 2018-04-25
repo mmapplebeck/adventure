@@ -25,13 +25,43 @@
 }
 
 .modes {
+  display: flex;
+
   a {
-    padding: .5rem .5rem;
-    background: black;
+    display: flex;
+    align-items: center;
+    height: 2.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 1.25rem;
+    font-family: 'Avengeance';
     border-radius: 3px;
+    text-decoration: none;
+    transition: border-color .3s ease;
   }
 
   a + a {
     margin-left: 1rem;
+  }
+}
+
+.icon {
+  margin-right: .5rem;
+}
+
+.play {
+  border: 3px solid #4CAF50;
+  color: white;
+
+  &:hover {
+    border-color: #A5D6A7;
+  }
+}
+
+.edit {
+  border: 3px solid #FBC02D;
+
+  &:hover {
+    border-color: #FFEE58;
   }
 }

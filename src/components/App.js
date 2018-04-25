@@ -6,6 +6,7 @@ import Home from './Home'
 import Editor from '../Editor'
 import Player from '../Player'
 import 'normalize.css'
+import '../fonts/avengeance/style.scss'
 import style from '../style/app.scss'
 
 class App extends React.Component {

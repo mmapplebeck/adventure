@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import '../fonts/avengeance/style.scss'
 import style from '../style/home.scss'
 
 const Home = props => {
