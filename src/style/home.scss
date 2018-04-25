@@ -1,0 +1,86 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 30vh;
+  color: white;
+  background-image: url('../images/adventure.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.heading {
+  font-family: 'Avengeance';
+  text-align: center;
+  margin: 0;
+  text-shadow: .25rem .25rem 0 black;
+  animation-name: hover;
+  animation-duration: 2s;
+  animation-delay: .5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.step1 {
+  font-size: 3rem;
+}
+
+.step2 {
+  font-size: 3rem;
+
+  @media all and (min-width: 40em) {
+    font-size: 4rem;
+  }
+}
+
+.step3 {
+  font-size: 3rem;
+
+  @media all and (min-width: 40em) {
+    font-size: 5rem;
+  }
+}
+
+.enterStep1 {
+  transform: translateX(-100vw);
+}
+
+.enterStep1Active {
+  transform: translateX(0);
+  transition: transform .2s ease;
+}
+
+.enterStep2 {
+  transform: translateX(100vw);
+}
+
+.enterStep2Active {
+  transform: translateX(0);
+  transition: transform .2s ease .2s;
+}
+
+.enterStep3 {
+  transform: translateX(-100vw);
+}
+
+.enterStep3Active {
+  transform: translateX(0);
+  transition: transform .2s ease .4s;
+}
+
+@keyframes hover {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-.25rem);
+    }
+    100% {
+      transform: translateY(0);
+    }
+}

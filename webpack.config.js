@@ -39,7 +39,13 @@ module.exports = {
       {
         test: /\.(gif|jpg|mp3)$/,
         use: {
-          loader: "file-loader"
+          loader: 'file-loader'
+        }
+      },
+      {
+        test: /\.(woff|woff2)$/,
+        use: {
+            loader: 'url-loader'
         }
       }
     ]

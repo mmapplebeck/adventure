@@ -1,10 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link, Switch, Route, withRouter } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
+import Menu from './Menu'
+import Home from './Home'
 import Editor from '../Editor'
 import Player from '../Player'
 import 'normalize.css'
-import style from '../style.scss'
+import style from '../style/app.scss'
 
 class App extends React.Component {
   constructor(props) {
@@ -21,19 +23,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <nav>
-          <Link to='/'>Home</Link>
-          <Link to='/edit'>Edit</Link>
-          <Link to='/play'>Play</Link>
-        </nav>
+      <div className={style.root}>
+        <Menu />
         <main>
           <Switch>
-            <Route exact path='/' render={props => {
-              return (
-                <div>Home</div>
-              )
-            }} />
+            <Route exact path='/' component={Home}/>
             <Route path='/edit' component={Editor} />
             <Route path='/play' component={Player} />
           </Switch>
