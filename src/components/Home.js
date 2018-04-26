@@ -1,11 +1,16 @@
 import React from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Sword from './Sword'
+import music from '../music'
 import style from '../style/home.scss'
 
 const Home = props => {
   return (
     <div className={style.root}>
+      <audio src={music['Adventure']}
+        autoPlay
+        loop>
+      </audio>
       <h1 className={style.heading}>
 
         <ReactCSSTransitionGroup
