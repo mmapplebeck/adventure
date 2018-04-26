@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import gamepad from '@fortawesome/fontawesome-free-solid/faGamepad'
+import home from '@fortawesome/fontawesome-free-solid/faHome'
 import pencil from '@fortawesome/fontawesome-free-solid/faPencilAlt'
 import playCircle from '@fortawesome/fontawesome-free-solid/faPlayCircle'
 import github from '../images/github.png'
@@ -14,7 +14,7 @@ const Menu = props => {
     <nav className={style.root}>
       <Link to={{ pathname: '/', search: props.location.search }}
         className={style.logo}>
-        <FontAwesomeIcon icon={gamepad} />
+        <FontAwesomeIcon icon={home} />
       </Link>
       <div className={style.modes}>
         <Link to={{ pathname: '/edit', search: props.location.search }}

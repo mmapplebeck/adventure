@@ -8,6 +8,8 @@ import Button from '../components/Button'
 import { createLevel, updateGame } from './actions'
 import images from '../images'
 import music from '../music'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import plus from '@fortawesome/fontawesome-free-solid/faPlus'
 import buttonStyle from '../style/button.scss'
 import style from './style.scss'
 
@@ -86,7 +88,11 @@ class Editor extends React.Component {
                           creatingNewLevel: true
                         })
                       }}>
-                        <span>Create Level</span>
+                        <span>
+                          <FontAwesomeIcon icon={plus}
+                          className={buttonStyle.icon} />
+                          Create Level
+                        </span>
                     </Button>
                 }
                 {
