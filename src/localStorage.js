@@ -1,10 +1,21 @@
-export function loadState() {
+import request from 'superagent'
+import queryString from 'query-string'
+import { loadFromDB } from './db'
+
+export async function loadState() {
   try {
-    const serializedState = localStorage.getItem('adventureState')
+    const response = await loadFromDB()
 
-    if (!serializedState) return undefined
+    if (response) {
+      return response
+    } else {
+      const serializedState = localStorage.getItem('adventureState')
 
-    return JSON.parse(serializedState)
+      if (!serializedState) return undefined
+
+      return JSON.parse(serializedState)
+    }
+
   } catch(err) {
     return undefined
   }

@@ -25,7 +25,7 @@ class App extends React.Component {
   render() {
     return (
       <div className={style.root}>
-        <Menu />
+        <Menu location={this.props.location} />
         <main>
           <Switch>
             <Route exact path='/' component={Home}/>
