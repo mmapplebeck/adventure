@@ -14,11 +14,11 @@ const Menu = props => {
         <FontAwesomeIcon icon={gamepad} />
       </Link>
       <div className={style.modes}>
-        <Link to='/edit' className={[buttonStyle.edit, buttonStyle.root].join(' ')}>
+        <Link to='/edit' className={[buttonStyle.warning, buttonStyle.root].join(' ')}>
           <FontAwesomeIcon icon={pencil}
             className={buttonStyle.icon} /> Create
         </Link>
-        <Link to='/play' className={[buttonStyle.play, buttonStyle.root].join(' ')}>
+        <Link to='/play' className={[buttonStyle.success, buttonStyle.root].join(' ')}>
           <FontAwesomeIcon icon={playCircle}
             className={buttonStyle.icon} /> Play
         </Link>

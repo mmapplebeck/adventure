@@ -4,9 +4,28 @@
   justify-content: center;
   min-height: calc(100vh - 4rem);
   margin-top: 4rem;
+  padding: 2rem 1rem;
   color: white;
   text-align: center;
   background-color: black;
   background-size: cover;
   background-position: center;
+
+  @media all and (min-width: 40em) {
+    padding: 2rem;
+  }
+}
+
+.message {
+  font-family: 'Lora';
+  font-size: 2.5rem;
+
+  + .choices {
+    margin-top: 2rem;
+  }
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
 }

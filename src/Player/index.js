@@ -1,8 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { updateCurrentLevel } from './actions'
+import Button from '../components/Button'
 import images from '../images'
 import music from '../music'
+import buttonStyle from '../style/button.scss'
 import style from './style.scss'
 
 class Player extends React.Component {
@@ -24,21 +26,26 @@ class Player extends React.Component {
               loop>
             </audio>
           }
-          <div>{this.props.message}</div>
-          {
-            this.props.choices.map((choice, i) => {
-              return (
-                <button type="button"
-                  key={i}
-                  onClick={() => {
-                    if (!choice.nextLevel) return
-                    this.props.updateCurrentLevel(choice.nextLevel)
-                  }}>
-                  {choice.text}
-                </button>
-              )
-            })
-          }
+          <div className={style.message}>
+            {this.props.message}
+          </div>
+          <div className={style.choices}>
+            {
+              this.props.choices.map((choice, i) => {
+                return (
+                  <Button type="button"
+                    className={[buttonStyle.root, buttonStyle.player].join(' ')}
+                    key={i}
+                    onClick={() => {
+                      if (!choice.nextLevel) return
+                      this.props.updateCurrentLevel(choice.nextLevel)
+                    }}>
+                    {choice.text}
+                  </Button>
+                )
+              })
+            }
+          </div>
       </div>
     )
   }
