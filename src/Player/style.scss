@@ -10,6 +10,7 @@
   background-color: black;
   background-size: cover;
   background-position: center;
+  transition: opacity .3s ease;
 
   @media all and (min-width: 40em) {
     padding: 2rem;
@@ -28,4 +29,40 @@
 .choices {
   display: flex;
   justify-content: center;
+}
+
+.appear {
+  opacity: 0;
+}
+
+.appearActive {
+  opacity: 1;
+  transition: opacity .3s ease;
+}
+
+.leave {
+  opacity: 1;
+}
+
+.leaveActive {
+  opacity: 0;
+}
+
+:global {
+  .fade {
+    animation: fadeOutIn .8s ease-out;
+  }
+}
+
+
+@keyframes fadeOutIn {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
 }

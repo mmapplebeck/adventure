@@ -4,6 +4,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import gamepad from '@fortawesome/fontawesome-free-solid/faGamepad'
 import pencil from '@fortawesome/fontawesome-free-solid/faPencilAlt'
 import playCircle from '@fortawesome/fontawesome-free-solid/faPlayCircle'
+import github from '../images/github.png'
 import style from '../style/menu.scss'
 import buttonStyle from '../style/button.scss'
 
@@ -23,7 +24,11 @@ const Menu = props => {
             className={buttonStyle.icon} /> Play
         </Link>
       </div>
-      <a href="" target="_blank">Github</a>
+      <a href="https://github.com/mmapplebeck/adventure"
+        className={style.github}
+        target="_blank">
+        <img src={github} alt="Check out my Github" />
+      </a>
     </nav>
   )
 }

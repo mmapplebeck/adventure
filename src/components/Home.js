@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import Sword from './Sword'
 import style from '../style/home.scss'
 
 const Home = props => {
@@ -44,6 +45,8 @@ const Home = props => {
         </ReactCSSTransitionGroup>
 
       </h1>
+      <Sword />
+      <Sword />
     </div>
   )
 }

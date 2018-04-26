@@ -19,6 +19,7 @@
   animation-delay: .5s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
+  z-index: 2;
 }
 
 .step1 {
@@ -66,6 +67,15 @@
 .enterStep3Active {
   transform: translateX(0);
   transition: transform .2s ease .4s;
+}
+
+.leave {
+  opacity: 1;
+}
+
+.leaveActive {
+  opacity: 0;
+  transition: opacity .1s ease;
 }
 
 @keyframes hover {

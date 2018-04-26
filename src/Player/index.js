@@ -27,7 +27,7 @@ class Player extends React.Component {
             </audio>
           }
           <div className={style.message}>
-            {this.props.message}
+              {this.props.message}
           </div>
           <div className={style.choices}>
             {

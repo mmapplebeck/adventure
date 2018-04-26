@@ -89,3 +89,12 @@
     margin-left: 1rem;
   }
 }
+
+.appear {
+  opacity: 0;
+}
+
+.appearActive {
+  opacity: 1;
+  transition: opacity .3s ease;
+}
