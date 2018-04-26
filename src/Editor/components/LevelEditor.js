@@ -3,7 +3,12 @@ import { connect } from 'react-redux'
 import ChoiceEditor from './ChoiceEditor'
 import MusicEditor from './MusicEditor'
 import ImageEditor from './ImageEditor'
+import Button from '../../components/Button'
 import { deleteLevel, updateLevel, createChoice } from '../actions'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import plus from '@fortawesome/fontawesome-free-solid/faPlus'
+import trash from '@fortawesome/fontawesome-free-solid/faTrash'
+import buttonStyle from '../../style/button.scss'
 
 const LevelEditor = props => {
   return (
@@ -14,6 +19,7 @@ const LevelEditor = props => {
         <input type="text"
           id={`${props.id}__message`}
           value={props.message}
+          placeholder="Enter your message"
           onChange={(e) => {
             props.updateLevel(props.id, {
               message: e.target.value
@@ -53,16 +59,26 @@ const LevelEditor = props => {
               {...choice} />
           ))
         }
-        <button type="button"
+        <Button type="button"
+          className={[buttonStyle.root, buttonStyle.success].join(' ')}
           onClick={() => {
             props.createChoice(props.id)
           }}>
+          <FontAwesomeIcon icon={plus}
+            className={buttonStyle.icon} />
           Add Choice
-        </button>
+        </Button>
       </fieldset>
       {
         props.id !== 'start' &&
-          <button onClick={() => props.deleteLevel(props.id)}>Delete</button>
+          <Button className={[buttonStyle.root, buttonStyle.error].join(' ')}
+            onClick={() => props.deleteLevel(props.id)}>
+            <span>
+              <FontAwesomeIcon icon={trash}
+                className={buttonStyle.icon} />
+              Delete Level
+            </span>
+          </Button>
       }
 
     </fieldset>

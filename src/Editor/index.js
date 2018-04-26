@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import LevelEditor from './components/LevelEditor'
 import MusicEditor from './components/MusicEditor'
 import ImageEditor from './components/ImageEditor'
+import Button from '../components/Button'
 import { createLevel, updateGame } from './actions'
 import images from '../images'
 import music from '../music'
@@ -67,14 +68,14 @@ class Editor extends React.Component {
             }
             {
               !this.state.creatingNewLevel &&
-                <button type="button"
+                <Button type="button"
                   onClick={() => {
                     this.setState({
                       creatingNewLevel: true
                     })
                   }}>
-                    Create New Level
-                </button>
+                    <span>Create Level</span>
+                </Button>
             }
             {
               this.state.creatingNewLevel &&
@@ -85,16 +86,16 @@ class Editor extends React.Component {
                     onChange={(e) => this.setState({
                       newLevelId: e.target.value
                     })} />
-                  <button type="button"
+                  <Button type="button"
                     onClick={() => {
                       this.setState({
                         creatingNewLevel: false,
                         newLevelId: ''
                       })
                     }}>
-                      Cancel
-                  </button>
-                  <button type="button"
+                      <span>Cancel</span>
+                  </Button>
+                  <Button type="button"
                     onClick={() => {
                       this.setState({
                         creatingNewLevel: false,
@@ -102,8 +103,8 @@ class Editor extends React.Component {
                       })
                       this.props.createLevel(this.state.newLevelId)
                     }}>
-                      Create
-                  </button>
+                      <span>Create</span>
+                  </Button>
                 </div>
             }
           </fieldset>

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import AssetEditor from './AssetEditor'
 import { updatePreview } from '../actions'
 import images from '../../images'
+import image from '@fortawesome/fontawesome-free-solid/faImage'
 
 const ImageEditor = props => {
   return (
@@ -13,7 +14,8 @@ const ImageEditor = props => {
         props.updatePreview({
           previewBackground: src
         })
-      }} />
+      }}
+      icon={image} />
   )
 }
 

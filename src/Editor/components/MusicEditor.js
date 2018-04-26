@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import AssetEditor from './AssetEditor'
 import { updatePreview } from '../actions'
 import music from '../../music'
+import audio from '@fortawesome/fontawesome-free-solid/faVolumeUp'
 
 const MusicEditor = props => {
   return (
@@ -13,7 +14,8 @@ const MusicEditor = props => {
         props.updatePreview({
           previewMusic: src
         })
-      }}  />
+      }}
+      icon={audio} />
   )
 }
 

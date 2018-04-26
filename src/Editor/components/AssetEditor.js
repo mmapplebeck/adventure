@@ -1,4 +1,7 @@
 import React from 'react'
+import Button from '../../components/Button'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import buttonStyle from '../../style/button.scss'
 
 class AssetEditor extends React.Component {
   constructor(props) {
@@ -36,7 +39,11 @@ class AssetEditor extends React.Component {
         </select>
         {
           this.state.previewable &&
-            <button type="button"
+            <Button type="button"
+              className={[
+                buttonStyle.root,
+                this.state.previewing ? buttonStyle.error : buttonStyle.warning
+              ].join(' ')}
               onClick={(e) => {
                 const willPreview = !this.state.previewing
 
@@ -52,8 +59,12 @@ class AssetEditor extends React.Component {
                   previewing: false
                 })
               }}>
-                {this.state.previewing ? 'Cancel' : 'Preview'}
-            </button>
+                <span>
+                  <FontAwesomeIcon icon={this.props.icon}
+                    className={buttonStyle.icon} />
+                  {this.state.previewing ? 'Cancel' : 'Preview'}
+                </span>
+            </Button>
         }
       </div>
     )

@@ -1,6 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Button from '../../components/Button'
 import { updateChoice, deleteChoice } from '../actions'
+import buttonStyle from '../../style/button.scss'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import trash from '@fortawesome/fontawesome-free-solid/faTrash'
 
 const ChoiceEditor = props => {
   const choiceId = props.id + 1
@@ -12,6 +16,7 @@ const ChoiceEditor = props => {
         Text
         <input type="text"
           id={`${choicePrefix}-text`}
+          placeholder="Enter your choice text"
           value={props.text}
           onChange={(e) => {
             props.updateChoice(props.levelId, props.id, {
@@ -20,7 +25,7 @@ const ChoiceEditor = props => {
           }} />
       </label>
       <label htmlFor={`${choicePrefix}-nextLevel`}>
-        Next Level
+        <div>Next Level</div>
         <select value={props.nextLevel}
           id={`${choicePrefix}-nextLevel`}
           onChange={(e) => {
@@ -29,7 +34,7 @@ const ChoiceEditor = props => {
             })
           }}>
             <option value="">
-              Select Next Level
+              None
             </option>
             {
               Object.keys(props.levels).map(id => (
@@ -41,10 +46,13 @@ const ChoiceEditor = props => {
             }
         </select>
       </label>
-      <button type="button"
+      <Button type="button"
+        className={[buttonStyle.root, buttonStyle.error].join(' ')}
         onClick={() => props.deleteChoice(props.levelId, props.id)}>
-          Delete Choice
-      </button>
+          <FontAwesomeIcon icon={trash}
+            className={buttonStyle.icon} />
+          <span>Delete Choice</span>
+      </Button>
     </fieldset>
   )
 }

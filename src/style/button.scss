@@ -1,0 +1,69 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  height: 2.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-family: 'Avengeance';
+  line-height: 1;
+  text-decoration: none;
+  border: 3px solid #222;
+  border-radius: 3px;
+  background: #222;
+  color: white;
+  transition: border-color .3s ease;
+  outline: none;
+
+  &.play {
+    border: 3px solid #4CAF50;
+    color: white;
+
+    &:hover {
+      border-color: #A5D6A7;
+    }
+  }
+
+  &.edit {
+    border: 3px solid #FBC02D;
+
+    &:hover {
+      border-color: #FFEE58;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  + .root {
+    margin-left: 1rem;
+  }
+}
+
+.success {
+  border: 3px solid #4CAF50;
+
+  &:hover {
+    border-color: #A5D6A7;
+  }
+}
+
+.warning {
+  border: 3px solid #FBC02D;
+
+  &:hover {
+    border-color: #FFEE58;
+  }
+}
+
+.error {
+  border: 3px solid #F44336;
+
+  &:hover {
+    border-color: #EF9A9A;
+  }
+}
+
+.icon {
+  margin-right: .5rem;
+}
