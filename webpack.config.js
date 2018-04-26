@@ -8,7 +8,7 @@ module.exports = {
   mode: 'development',
   entry: { main: './src/index.js' },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'docs'),
     filename: '[name].[chunkhash].js'
   },
   module: {
