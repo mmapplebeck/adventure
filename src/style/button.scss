@@ -16,7 +16,6 @@
 
   &:hover {
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.1);
   }
 
   + .root {
@@ -44,6 +43,10 @@
   font-family: 'Montserrat';
   text-transform: uppercase;
   background: none;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
 }
 
 .error {

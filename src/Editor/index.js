@@ -7,6 +7,7 @@ import Button from '../components/Button'
 import { createLevel, updateGame } from './actions'
 import images from '../images'
 import music from '../music'
+import buttonStyle from '../style/button.scss'
 import style from './style.scss'
 
 class Editor extends React.Component {
@@ -69,6 +70,7 @@ class Editor extends React.Component {
             {
               !this.state.creatingNewLevel &&
                 <Button type="button"
+                  className={[buttonStyle.root, buttonStyle.success].join(' ')}
                   onClick={() => {
                     this.setState({
                       creatingNewLevel: true
@@ -79,14 +81,15 @@ class Editor extends React.Component {
             }
             {
               this.state.creatingNewLevel &&
-                <div>
+                <div className={style.inputGroup}>
                   <input type="text"
-                    placeholder="New level name"
+                    placeholder="Enter new level name"
                     value={this.state.newLevelId}
                     onChange={(e) => this.setState({
                       newLevelId: e.target.value
                     })} />
                   <Button type="button"
+                    className={[buttonStyle.root, buttonStyle.error].join(' ')}
                     onClick={() => {
                       this.setState({
                         creatingNewLevel: false,
@@ -96,6 +99,7 @@ class Editor extends React.Component {
                       <span>Cancel</span>
                   </Button>
                   <Button type="button"
+                    className={[buttonStyle.root, buttonStyle.success].join(' ')}
                     onClick={() => {
                       this.setState({
                         creatingNewLevel: false,
